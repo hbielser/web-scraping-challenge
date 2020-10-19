@@ -4,16 +4,19 @@ from bs4 import BeautifulSoup as bs
 import time
 
 def get_all():
+    all_mars_data = {}
     {'news_title': get_mars_news_title(),
     'news_text': get_mars_news_text(),
     'featured_image': get_featured_image(),
-    
+    'mars_facts': get_mars_facts(),
+    'mars_hems': get_mars_hems()
     }
+
+    return all_mars_data
 
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
     return Browser("chrome", **executable_path, headless=False)
-
 
 def get_mars_news_title():
     browser = init_browser()
@@ -71,7 +74,7 @@ def get_featured_image():
 
     return featured_image_url
 
-def get_mars_table():
+def get_mars_facts():
 
     mars_table_url = 'https://space-facts.com/mars/'
     mars_table = pd.read_html(mars_table_url)
@@ -123,3 +126,8 @@ def get_mars_hems():
     browser.quit()
 
     return hem_img_urls
+
+if __name__ == "__main__":
+
+    # If running as script, print scraped data
+    print(get_all())

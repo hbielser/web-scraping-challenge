@@ -1,16 +1,16 @@
-from splinter import Browser
 import pandas as pd
 from bs4 import BeautifulSoup as bs
+import requests
+from splinter import Browser
 import time
 
 def get_all():
     all_mars_data = {}
-    {'news_title': get_mars_news_title(),
-    'news_text': get_mars_news_text(),
-    'featured_image': get_featured_image(),
-    'mars_facts': get_mars_facts(),
-    'mars_hems': get_mars_hems()
-    }
+    all_mars_data['news_title'] = get_mars_news_title()
+    all_mars_data['news_text'] = get_mars_news_text()
+    all_mars_data['featured_image'] = get_featured_image()
+    all_mars_data['mars_facts'] = get_mars_facts()
+    all_mars_data['mars_hems'] = get_mars_hems()
 
     return all_mars_data
 

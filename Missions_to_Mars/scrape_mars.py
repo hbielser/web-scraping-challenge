@@ -79,7 +79,7 @@ def get_mars_facts():
     mars_table_url = 'https://space-facts.com/mars/'
     mars_table = pd.read_html(mars_table_url)
     mars_df = mars_table[0]
-    mars_html = mars_df.to_html()
+    mars_html = mars_df.to_html(classes=["table-bordered", "table-striped", "table-hover"],  header = False, index = False, border = 1)
 
     return mars_html
 
